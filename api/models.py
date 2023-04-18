@@ -20,7 +20,7 @@ class User(AbstractBaseUser, PermissionsMixin):
             'unique': _("A user with that username already exists."),
         },
     )   
-    email = models.EmailField(_('email address'), blank=True)
+    email = models.EmailField(_('email address'), unique=True)
     phone_number = models.CharField(_("phone number"), blank=True, max_length=11)
     avatar = models.ImageField(upload_to='users/avatar/', blank=True) 
     bio = models.TextField(_("bio"), blank=True)
