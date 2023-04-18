@@ -1,0 +1,9 @@
+asgiref==3.6.0
+Django==4.2
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.2.2
+Pillow==9.5.0
+psycopg2-binary==2.9.6
+PyJWT==1.7.1
+pytz==2023.3
+sqlparse==0.4.3
