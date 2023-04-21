@@ -7,7 +7,8 @@ from rest_framework_simplejwt.views import (
 from .views import ( 
     SignupView,
     ProfileView,
-    SelfProfileView
+    FollowersView,
+    FollowingsView
     )
 
 
@@ -20,7 +21,8 @@ urlpatterns = [
     
     path('<str:username>/', ProfileView.as_view()),
     
-    path('', SelfProfileView.as_view()),
+    path('followers/<str:username>/', FollowersView.as_view()),
+    path('followings/<str:username>/', FollowingsView.as_view()),
     
     
 ]

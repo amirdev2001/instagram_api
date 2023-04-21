@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from .models import Relation
 
 from django.contrib.auth import get_user_model
 
@@ -34,3 +35,18 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'avatar', 'bio', 'website', 'is_private', 'is_verified')    
+        
+class FollowersSerializer(serializers.ModelSerializer):
+    
+    follows = serializers.SerializerMethodField()
+    followed_users = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Relation
+        fields = ('follows', 'followed_users')
+
+    def get_follows(self, obj):
+        return obj.from_user.username
+    
+    def get_followed_users(self, obj):
+        return obj.to_user.username
