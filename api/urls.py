@@ -8,7 +8,11 @@ from .views import (
     SignupView,
     ProfileView,
     FollowersView,
-    FollowingsView
+    FollowingsView,
+    PostRetrieveView,
+    PostDeleteView,
+    PostUpdateView,
+    PostCreateView
     )
 
 
@@ -23,6 +27,14 @@ urlpatterns = [
     
     path('followers/<str:username>/', FollowersView.as_view()),
     path('followings/<str:username>/', FollowingsView.as_view()),
+    
+    
+
+    path('posts/<str:username>/', PostRetrieveView.as_view()),
+
+    path('post/create/', PostCreateView.as_view()),        
+    path('post/delete/<int:pk>/', PostDeleteView.as_view()),    
+    path('post/update/<int:pk>/', PostUpdateView.as_view()),    
     
     
 ]
